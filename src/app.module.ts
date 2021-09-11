@@ -4,10 +4,29 @@ import { AppService } from './app.service';
 import { UsersController } from './users/users.controller';
 import { PostsController } from './posts/posts.controller';
 import { HashtagsController } from './hashtags/hashtags.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/entity/user';
 
 @Module({
-  imports: [],
-  controllers: [AppController, UsersController, PostsController, HashtagsController],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'ttoke4real',
+      database: 'talk',
+      synchronize: true,
+      logging: true,
+      entities: [User],
+    }),
+  ],
+  controllers: [
+    AppController,
+    UsersController,
+    PostsController,
+    HashtagsController,
+  ],
   providers: [AppService],
 })
 export class AppModule {}
