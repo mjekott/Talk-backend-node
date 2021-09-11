@@ -1,5 +1,7 @@
 import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('posts')
 @Controller('posts')
 export class PostsController {
   @Get('/')
@@ -8,8 +10,8 @@ export class PostsController {
   }
 
   @Get(':/postid')
-  getPostDetails(@Param() param): string {
-    return 'get post details' + param.postid;
+  getPostDetails(@Param('postid') postid: string): string {
+    return 'get post details' + postid;
   }
 
   @Post('/')
@@ -18,17 +20,17 @@ export class PostsController {
   }
 
   @Delete('/:postid')
-  deletePost(@Param() param): string {
+  deletePost(@Param('postid') postid: string): string {
     return 'delete postid';
   }
 
   @Put('/:postid/like')
-  likePost(@Param() param): string {
+  likePost(@Param('postid') postid: string): string {
     return 'liked post';
   }
 
   @Delete('/:postid/like')
-  unlikePost(@Param() param): string {
+  unlikePost(@Param('postid') postid: string): string {
     return 'unliked a post';
   }
 }

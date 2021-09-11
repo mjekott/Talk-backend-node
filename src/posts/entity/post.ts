@@ -1,5 +1,6 @@
 import { BaseEntity } from 'src/commons/entity/base';
-import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
+import { User } from 'src/users/entity/user';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
 
 @Entity()
 export class Post extends BaseEntity {
@@ -28,6 +29,10 @@ export class Post extends BaseEntity {
   @OneToOne(() => Post)
   @JoinColumn({ name: 'orignal_post_id' })
   origPost: Post;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'author_id' })
+  author: User;
 }
 
 class Mention {
