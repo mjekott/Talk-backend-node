@@ -1,10 +1,8 @@
+import { BaseEntity } from 'src/commons/entity/base';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class User extends BaseEntity {
   @Column({ length: 30, nullable: false, unique: true })
   username: string;
 

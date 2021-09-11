@@ -6,6 +6,7 @@ import { PostsController } from './posts/posts.controller';
 import { HashtagsController } from './hashtags/hashtags.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entity/user';
+import { Post } from './posts/entity/post';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { User } from './users/entity/user';
       database: 'talk',
       synchronize: true,
       logging: true,
-      entities: [User],
+      entities: [User, Post],
     }),
   ],
   controllers: [
