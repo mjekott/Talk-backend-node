@@ -1,7 +1,7 @@
 # Talk - A Twitetr Clone
 
 Backend Api for talk with Nest Framework (NodeJs + Typscript + PostgresSql)
-![Nest Workflow](https://github.com/scaleracademy/twitter-backend-node/actions/workflows/nodejs.yml/badge.svg)
+![Nest Workflow](https://github.com/mejkott/talk-backend-node/actions/workflows/nodejs.yml/badge.svg)
 
 ## Installation
 
